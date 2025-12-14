@@ -8,32 +8,22 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Mono:wght@500&family=Roboto:wght@400;700;900&display=swap');
 
-        /* --- MIDNIGHT ORANGE & NEON THEME VARIABLES --- */
+    
         :root {
-            --bg-main: #121212;      /* Deep Dark Charcoal */
+            --bg-main: #121212;      
             --bg-card: #1e1e1e;      
             --text-light: #f4f4f4;   
             --text-muted: #999999;   
             
-            --accent-orange: #ff7700; /* Vibrant Orange */
-            --accent-neon: #00ffff;  /* Electric Cyan */
+            --accent-orange: #ff7700; 
+            --accent-neon: #00ffff;  
             
             --win-color: #00cc66;    
             --loss-color: #ff4444;   
             
-            --border-color: #333333; 
+            --border-color: #333333;  
         }
 
-        /* --- TYPING ANIMATION KEYFRAMES --- */
-        @keyframes typing {
-          from { width: 0 }
-          to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-          from, to { border-color: transparent }
-          50% { border-color: var(--accent-orange) }
-        }
         
         * {
             box-sizing: border-box;
@@ -58,7 +48,7 @@
             flex-grow: 1;
         }
 
-        /* HEADER SECTION */
+
         .main-header {
             padding: 40px 60px;
             display: flex;
@@ -68,8 +58,8 @@
             border-bottom: 3px solid var(--accent-orange);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
-        
-        /* New Logo & Name Container */
+
+
         .header-logo-container {
             display: flex;
             align-items: center;
@@ -119,10 +109,10 @@
             text-shadow: 0 0 10px rgba(255, 119, 0, 0.5);
         }
         
-        /* TYPING STYLE FOR TAGLINE */
+
         .tagline-container {
-            width: 100%; 
-            height: 25px; 
+            width: 100%;
+            height: 25px;
             margin-bottom: 20px;
         }
         
@@ -132,13 +122,12 @@
             font-weight: 500;
             color: var(--accent-neon);
             letter-spacing: 0.1em;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 0;
-            animation: 
-                typing 3.5s steps(40, end) forwards,
-                blink-caret 0.75s step-end infinite;
-            border-right: 3px solid var(--accent-orange);
+            
+ 
+            white-space: nowrap; 
+            overflow: visible; 
+            width: auto;
+            border-right: none;
             display: inline-block;
             text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
         }
@@ -155,17 +144,18 @@
             box-shadow: 0 0 10px var(--accent-neon);
         }
 
-        /* STANDINGS GRID LAYOUT */
+
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            /* Force 2 columns when space allows */
+            grid-template-columns: repeat(2, minmax(400px, 1fr)); 
             gap: 30px;
             padding: 40px 60px;
             max-width: 1600px;
             margin: 0 auto;
         }
 
-        /* STANDINGS CARD STYLES */
+
         .card {
             background: var(--bg-card);
             border-radius: 8px;
@@ -195,7 +185,7 @@
             font-weight: 700;
         }
 
-        /* STANDINGS TABLE STYLES */
+
         table { width: 100%; border-collapse: collapse; }
         thead { background: #333333; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
         th { padding: 14px 10px; font-size: 0.85rem; font-weight: 700; }
@@ -235,18 +225,20 @@
         .developer-credit { color: var(--text-muted); }
         .developer-credit span { color: var(--accent-orange); font-weight: 700; }
 
-        /* Responsive adjustment */
+  
+        @media (max-width: 900px) {
+            .grid-container { 
+     
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
         @media (max-width: 768px) {
             .main-header { flex-direction: column; align-items: center; padding: 30px 20px; }
-            .header-logo-container { flex-direction: column; align-items: center; gap: 10px; }
+            .logo-title-container { flex-direction: column; align-items: center; gap: 10px; }
             .header-content { text-align: center; width: 100%; margin-top: 15px; }
             .club-name { margin-top: 0; }
-            .grid-container { padding: 20px; grid-template-columns: 1fr; }
             .main-title { font-size: 3rem; }
-            .knockout-section { padding: 20px; }
-            .knockout-title { font-size: 2rem; }
-            .tagline-container { text-align: center; }
-            .tagline { margin: 0 auto; }
             footer { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
         }
     </style>
@@ -301,7 +293,7 @@
                     </table>
                 </div>
             </div>
-
+            
             <div class="card">
                 <div class="card-top"><h3>Group C</h3></div>
                 <div class="table-wrapper">
@@ -345,7 +337,7 @@
                             <span class="team-name-ko">Knightmare Crew</span>
                         </div>
                         <div class="team-slot">
-                            <span class="team-name-ko">Fire Falcon</span>
+                            <span class="team-name-ko">Eclipse Sentinels</span>
                         </div>
                     </div>
 
@@ -354,7 +346,7 @@
                             <span class="team-name-ko">North Bengal</span>
                         </div>
                         <div class="team-slot">
-                            <span class="team-name-ko">Eclipse Sentinels</span>
+                            <span class="team-name-ko">Fire Falcon</span>
                         </div>
                     </div>
                     
