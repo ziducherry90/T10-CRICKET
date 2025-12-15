@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -290,6 +291,37 @@
     @media (max-width: 900px) {
       .breaking-inner { padding: 10px 20px; }
       .match-center { padding: 0 20px; }
+    }
+
+    /* ===== GROUP STANDINGS HEADER (ADDED) ===== */
+    .standings-header {
+      max-width: 1600px;
+      margin: 50px auto 10px;
+      padding: 0 60px;
+      text-align: center;
+    }
+    .standings-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      text-shadow: 0 0 10px rgba(255, 119, 0, 0.55);
+    }
+    .standings-subtitle {
+      margin-top: 8px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      color: var(--accent-neon);
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 6px rgba(0, 255, 255, 0.45);
+    }
+    @media (max-width: 900px) {
+      .standings-header {
+        padding: 0 20px;
+        margin-top: 35px;
+      }
     }
 
     /* GRID */
@@ -660,6 +692,12 @@
 
     </section>
 
+    <!-- Group Standings Headline (ADDED) -->
+    <section class="standings-header">
+      <h2 class="standings-title">Group Standings</h2>
+      <p class="standings-subtitle">UIU T10 Cricket Season 3 • Points Table</p>
+    </section>
+
     <div class="grid-container">
 
       <!-- Group A -->
@@ -671,8 +709,8 @@
               <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
             </thead>
             <tbody>
-              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">Knightmare Crew(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+5.68</td></tr>
-              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">North Bengal UIU(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">North Bengal UIU(Q)</span></td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+5.68</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">Knightmare Crew(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
               <tr><td class="pos">03</td><td class="club">Six Storm</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-3.16</td></tr>
               <tr><td class="pos">04</td><td class="club">Team Emergency</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-6.63</td></tr>
             </tbody>
@@ -738,7 +776,7 @@
 
     <!-- Knockout -->
     <div class="knockout-section">
-      <h2 class="knockout-title">Championship Knockout Stage</h2>
+      <h2 class="knockout-title">Knockout Stage</h2>
 
       <div class="bracket">
         <div class="round quarter-finals">
