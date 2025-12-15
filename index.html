@@ -7,7 +7,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Mono:wght@500&family=Roboto:wght@400;700;900&display=swap');
@@ -136,7 +135,7 @@
       box-shadow: 0 0 10px var(--accent-neon);
     }
 
-    /* ===== BREAKING NEWS BAR (NEW) ===== */
+    /* ===== BREAKING NEWS BAR ===== */
     .breaking-bar {
       background: linear-gradient(90deg, var(--accent-orange), #ff9a3d);
       color: var(--bg-main);
@@ -181,7 +180,7 @@
     }
     .breaking-bar:hover .breaking-track { animation-play-state: paused; }
 
-    /* ===== MATCH CENTER (NEW) ===== */
+    /* ===== MATCH CENTER ===== */
     .match-center {
       max-width: 1600px;
       margin: 28px auto 0;
@@ -347,8 +346,15 @@
       color: var(--text-light);
     }
     .pos { color: var(--accent-neon); font-size: 1.3rem; font-weight: 900; }
-    .club { text-align: left; padding-left: 20px; font-size: 1rem; display: flex; align-items: center; gap: 10px; font-weight: 700; }
-    .club i { width: 20px; text-align: center; color: var(--accent-orange); font-size: 0.9rem; }
+
+    /* UPDATED: removed icon layout */
+    .club {
+      text-align: left;
+      padding-left: 20px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
     .win { color: var(--win-color); font-weight: 700; }
     .pts { color: var(--accent-orange); font-size: 1.1rem; font-weight: 900; }
     .nrr { font-family: 'Roboto Mono', monospace; font-size: 1rem; }
@@ -452,7 +458,6 @@
       white-space: nowrap;
     }
     .footer-social a:hover { color: var(--accent-neon); text-shadow: 0 0 5px var(--accent-neon); }
-    .footer-social i { margin-right: 5px; }
     .developer-credit { color: var(--text-muted); }
     .developer-credit span { color: var(--accent-orange); font-weight: 700; }
 
@@ -471,13 +476,12 @@
       footer { flex-direction: column; text-align: center; padding: 20px; }
       .footer-social a { margin-left: 0; display: inline-block; margin-top: 10px; }
     }
-  
+
     .glow-orange {
       color: var(--accent-orange) !important;
       text-shadow: 0 0 6px rgba(255,119,0,0.65), 0 0 14px rgba(255,119,0,0.45);
       font-weight: 900;
     }
-
   </style>
 </head>
 
@@ -490,7 +494,6 @@
         <span class="club-name">UIU SPORTS CLUB</span>
       </div>
 
-      <!-- UPDATED: Last Match Result -->
       <div class="header-content">
         <h2 class="sub-title">T10 CRICKET SEASON 3</h2>
         <h1 class="main-title">TOURNAMENT</h1>
@@ -503,21 +506,25 @@
       </div>
     </header>
 
-    <!-- NEW: Breaking News Bar -->
+    <!-- Breaking News Bar -->
     <div class="breaking-bar">
       <div class="breaking-inner">
         <div class="breaking-pill">BREAKING</div>
         <div class="breaking-marquee" aria-label="Breaking news">
-          <div class="breaking-track">Electrical Express 107/7 (10) beat Midnight Assassins 93/9 (10) by 14 runs • North Bengal UIU 180/4 (10) beat Eclipse Sentinels 55/8 (8.2) by 125 runs • MOTM: Gourob Baral (4/15) • MOTM: Murad (120 off 39) • North Bengal UIU & Electrical Express QUALIFIED TO SEMI-FINAL •</div>
+          <div class="breaking-track">
+            Electrical Express 107/7 (10) beat Midnight Assassins 93/9 (10) by 14 runs •
+            North Bengal UIU 180/4 (10) beat Eclipse Sentinels 55/8 (8.2) by 125 runs •
+            MOTM: Gourob Baral (4/15) • MOTM: Murad (120 off 39) •
+            North Bengal UIU & Electrical Express QUALIFIED TO SEMI-FINAL •
+          </div>
         </div>
       </div>
     </div>
 
-    
-    <!-- NEW: Match Center (Two Results) -->
+    <!-- Match Center (Two Results) -->
     <section class="match-center">
 
-      <!-- Match 1: Electrical Express vs Midnight Assassins -->
+      <!-- Match 1 -->
       <div class="match-card">
         <div class="match-card-top">
           <h3>Scorecard</h3>
@@ -586,7 +593,7 @@
 
     <section class="match-center" style="margin-top: 18px;">
 
-      <!-- Match 2: North Bengal UIU vs Eclipse Sentinels -->
+      <!-- Match 2 -->
       <div class="match-card">
         <div class="match-card-top">
           <h3>Scorecard</h3>
@@ -653,7 +660,6 @@
 
     </section>
 
-
     <div class="grid-container">
 
       <!-- Group A -->
@@ -665,10 +671,10 @@
               <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
             </thead>
             <tbody>
-              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-shield-cat"></i> <span class="glow-orange">Knightmare Crew(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+5.68</td></tr>
-              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-shield-halved"></i> <span class="glow-orange">North Bengal UIU(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
-              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-cloud-bolt"></i> Six Storm</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-3.16</td></tr>
-              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-truck-medical"></i> Team Emergency</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-6.63</td></tr>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">Knightmare Crew(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+5.68</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">North Bengal UIU(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
+              <tr><td class="pos">03</td><td class="club">Six Storm</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-3.16</td></tr>
+              <tr><td class="pos">04</td><td class="club">Team Emergency</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-6.63</td></tr>
             </tbody>
           </table>
         </div>
@@ -683,10 +689,10 @@
               <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
             </thead>
             <tbody>
-              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-crown"></i> <span class="glow-orange">UIU Conquerors(Q)</span></td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+3.61</td></tr>
-              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-bolt"></i> <span class="glow-orange">Electrical Express(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+2.08</td></tr>
-              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-paw"></i> Pitch Predators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.84</td></tr>
-              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-cloud"></i> Mighty Thunders</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-4.55</td></tr>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">UIU Conquerors(Q)</span></td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+3.61</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">Electrical Express(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+2.08</td></tr>
+              <tr><td class="pos">03</td><td class="club">Pitch Predators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.84</td></tr>
+              <tr><td class="pos">04</td><td class="club">Mighty Thunders</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-4.55</td></tr>
             </tbody>
           </table>
         </div>
@@ -701,10 +707,10 @@
               <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
             </thead>
             <tbody>
-              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-mask"></i> <span class="glow-orange">Midnight Assassins(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.30</td></tr>
-              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-train"></i> <span class="glow-orange">Team Express(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.27</td></tr>
-              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-users"></i> Alpha Squad</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr neg">-0.02</td></tr>
-              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-user-ninja"></i> Alpha Strikers</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-1.42</td></tr>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">Midnight Assassins(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.30</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">Team Express(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.27</td></tr>
+              <tr><td class="pos">03</td><td class="club">Alpha Squad</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr neg">-0.02</td></tr>
+              <tr><td class="pos">04</td><td class="club">Alpha Strikers</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-1.42</td></tr>
             </tbody>
           </table>
         </div>
@@ -719,10 +725,10 @@
               <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
             </thead>
             <tbody>
-              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-fire"></i> <span class="glow-orange">Fierce Falcons(Q)</span></td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+1.27</td></tr>
-              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-moon"></i> <span class="glow-orange">Eclipse Sentinels(Q)</span></td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr pos">+1.07</td></tr>
-              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-helmet-safety"></i> UIU Gladiators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-0.72</td></tr>
-              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-atom"></i> Quantum Strikers</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.27</td></tr>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">Fierce Falcons(Q)</span></td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+1.27</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">Eclipse Sentinels(Q)</span></td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr pos">+1.07</td></tr>
+              <tr><td class="pos">03</td><td class="club">UIU Gladiators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-0.72</td></tr>
+              <tr><td class="pos">04</td><td class="club">Quantum Strikers</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.27</td></tr>
             </tbody>
           </table>
         </div>
@@ -730,12 +736,11 @@
 
     </div>
 
-    <!-- Knockout (UPDATED AS REQUESTED) -->
+    <!-- Knockout -->
     <div class="knockout-section">
       <h2 class="knockout-title">Championship Knockout Stage</h2>
 
       <div class="bracket">
-        <!-- Quarter Finals (order exactly as given) -->
         <div class="round quarter-finals">
           <h4>Quarter-Finals</h4>
 
@@ -760,7 +765,6 @@
           </div>
         </div>
 
-        <!-- Semi Finals (Winner QF1 vs Winner QF3, Winner QF2 vs Winner QF4) -->
         <div class="round semi-finals">
           <h4>Semi-Finals</h4>
 
@@ -775,7 +779,6 @@
           </div>
         </div>
 
-        <!-- Final -->
         <div class="round final">
           <h4>Grand Final</h4>
           <div class="matchup final-match">
@@ -792,7 +795,7 @@
     <div class="footer-social">
       Follow the action on:
       <a href="https://www.facebook.com/SCUIU" target="_blank" rel="noopener noreferrer" title="UIU Sports Club Facebook Page">
-        <i class="fab fa-facebook-square"></i> UIU Sports Club
+        UIU Sports Club
       </a>
     </div>
     <div class="developer-credit">
