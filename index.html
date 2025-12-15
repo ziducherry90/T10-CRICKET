@@ -27,6 +27,8 @@
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       padding: 0;
@@ -280,19 +282,13 @@
       color: var(--text-light);
       line-height: 1.7;
     }
-    .small-muted {
-      color: var(--text-muted);
-      font-family: 'Roboto Mono', monospace;
-      margin-top: 8px;
-      font-size: 0.95rem;
-    }
 
     @media (max-width: 900px) {
       .breaking-inner { padding: 10px 20px; }
       .match-center { padding: 0 20px; }
     }
 
-    /* ===== GROUP STANDINGS HEADER (ADDED) ===== */
+    /* ===== GROUP STANDINGS HEADER ===== */
     .standings-header {
       max-width: 1600px;
       margin: 50px auto 10px;
@@ -315,12 +311,6 @@
       color: var(--accent-neon);
       letter-spacing: 0.12em;
       text-shadow: 0 0 6px rgba(0, 255, 255, 0.45);
-    }
-    @media (max-width: 900px) {
-      .standings-header {
-        padding: 0 20px;
-        margin-top: 35px;
-      }
     }
 
     /* GRID */
@@ -377,15 +367,7 @@
       color: var(--text-light);
     }
     .pos { color: var(--accent-neon); font-size: 1.3rem; font-weight: 900; }
-
-    /* UPDATED: removed icon layout */
-    .club {
-      text-align: left;
-      padding-left: 20px;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
+    .club { text-align: left; padding-left: 20px; font-size: 1rem; font-weight: 700; }
     .win { color: var(--win-color); font-weight: 700; }
     .pts { color: var(--accent-orange); font-size: 1.1rem; font-weight: 900; }
     .nrr { font-family: 'Roboto Mono', monospace; font-size: 1rem; }
@@ -497,6 +479,7 @@
       .grid-container { grid-template-columns: 1fr; padding: 20px; }
       .knockout-section { padding: 30px 20px; }
       .main-header { padding: 28px 20px; }
+      .standings-header { padding: 0 20px; margin-top: 35px; }
     }
 
     @media (max-width: 768px) {
@@ -513,13 +496,74 @@
       text-shadow: 0 0 6px rgba(255,119,0,0.65), 0 0 14px rgba(255,119,0,0.45);
       font-weight: 900;
     }
+
+    /* ===== FIXED SHORTCUT NAV ===== */
+    .quick-nav {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .quick-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,255,255,0.35);
+      background: rgba(0,0,0,0.55);
+      color: var(--accent-neon);
+      font-size: 22px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 14px rgba(0,255,255,0.22);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .quick-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(255,119,0,0.35);
+      color: var(--accent-orange);
+      border-color: rgba(255,119,0,0.45);
+    }
+
+    .quick-panel {
+      display: none;
+      min-width: 210px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,119,0,0.35);
+      background: rgba(18,18,18,0.92);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+    }
+    .quick-panel.show { display: block; }
+
+    .quick-panel a {
+      display: block;
+      padding: 12px 14px;
+      text-decoration: none;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 800;
+      color: var(--text-light);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+    .quick-panel a:last-child { border-bottom: none; }
+    .quick-panel a:hover {
+      background: rgba(0,255,255,0.10);
+      color: var(--accent-neon);
+    }
   </style>
 </head>
 
 <body>
   <div class="content-wrap">
 
-    <header class="main-header">
+    <header class="main-header" id="top">
       <div class="header-logo-container">
         <img src="UIU Sports Club.png" alt="UIU Sports Club Logo" class="header-logo" />
         <span class="club-name">UIU SPORTS CLUB</span>
@@ -540,20 +584,21 @@
     <!-- Breaking News Bar -->
     <div class="breaking-bar">
       <div class="breaking-inner">
-        <div class="breaking-pill">BREAKING</div>
+        <div class="breaking-pill">UPDATE</div>
         <div class="breaking-marquee" aria-label="Breaking news">
           <div class="breaking-track">
             Electrical Express 107/7 (10) beat Midnight Assassins 93/9 (10) by 14 runs •
+            MOTM: Gourob Baral (4/15) •
             North Bengal UIU 180/4 (10) beat Eclipse Sentinels 55/8 (8.2) by 125 runs •
-            MOTM: Gourob Baral (4/15) • MOTM: Murad (120 off 39) •
+            MOTM: Murad (120 off 39) •
             North Bengal UIU & Electrical Express QUALIFIED TO SEMI-FINAL •
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Match Center (Two Results) -->
-    <section class="match-center">
+    <!-- Match Center (Match 1) -->
+    <section class="match-center" id="match-center">
 
       <!-- Match 1 -->
       <div class="match-card">
@@ -587,7 +632,6 @@
 
       <!-- Match 1: MOTM + Highlights -->
       <div style="display:flex; flex-direction:column; gap:24px;">
-
         <div class="match-card">
           <div class="match-card-top">
             <h3>Man of the Match</h3>
@@ -617,11 +661,11 @@
             </ul>
           </div>
         </div>
-
       </div>
 
     </section>
 
+    <!-- Match Center (Match 2) -->
     <section class="match-center" style="margin-top: 18px;">
 
       <!-- Match 2 -->
@@ -656,7 +700,6 @@
 
       <!-- Match 2: MOTM + Highlights -->
       <div style="display:flex; flex-direction:column; gap:24px;">
-
         <div class="match-card">
           <div class="match-card-top">
             <h3>Man of the Match</h3>
@@ -686,13 +729,12 @@
             </ul>
           </div>
         </div>
-
       </div>
 
     </section>
 
-    <!-- Group Standings Headline (ADDED) -->
-    <section class="standings-header">
+    <!-- Group Standings Headline -->
+    <section class="standings-header" id="group-standings">
       <h2 class="standings-title">Group Standings</h2>
       <p class="standings-subtitle">UIU T10 Cricket Season 3 • Points Table</p>
     </section>
@@ -774,7 +816,7 @@
     </div>
 
     <!-- Knockout -->
-    <div class="knockout-section">
+    <div class="knockout-section" id="knockout">
       <h2 class="knockout-title">Knockout Stage</h2>
 
       <div class="bracket">
@@ -839,5 +881,29 @@
       Developed by <span>Zidu cherry</span>
     </div>
   </footer>
+
+  <!-- Floating Shortcuts -->
+  <div class="quick-nav" aria-label="Quick navigation">
+    <button class="quick-btn" onclick="toggleQuickNav()" aria-label="Open shortcuts">☰</button>
+    <div class="quick-panel" id="quickPanel">
+      <a href="#top">⬆ Top</a>
+      <a href="#match-center">🏏 Match Center</a>
+      <a href="#group-standings">📊 Group Standings</a>
+      <a href="#knockout">🏆 Knockout</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleQuickNav() {
+      document.getElementById("quickPanel").classList.toggle("show");
+    }
+
+    document.addEventListener("click", function (e) {
+      const nav = document.querySelector(".quick-nav");
+      if (!nav.contains(e.target)) {
+        document.getElementById("quickPanel").classList.remove("show");
+      }
+    });
+  </script>
 </body>
 </html>
