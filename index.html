@@ -1,423 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UIU T10 Cricket Season 3 Tournament - Final Edition</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Mono:wght@500&family=Roboto:wght@400;700;900&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UIU T10 Cricket Season 3 Tournament - Final Edition</title>
 
-        /* --- MIDNIGHT ORANGE & NEON THEME VARIABLES --- */
-        :root {
-            --bg-main: #121212;      /* Deep Dark Charcoal */
-            --bg-card: #1e1e1e;      
-            --text-light: #f4f4f4;   
-            --text-muted: #999999;   
-            
-            --accent-orange: #ff7700; /* Vibrant Orange */
-            --accent-neon: #00ffff;  /* Electric Cyan */
-            
-            --win-color: #00cc66;    
-            --loss-color: #ff4444;   
-            
-            --border-color: #333333;  
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        /* TYPING ANIMATION KEYFRAMES REMOVED */
-        
-        * {
-            box-sizing: border-box;
-        }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Mono:wght@500&family=Roboto:wght@400;700;900&display=swap');
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-main);
-            background-image: 
-                linear-gradient(rgba(255, 119, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px, 40px 40px;
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-light);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .content-wrap {
-            flex-grow: 1;
-        }
+    :root {
+      --bg-main: #121212;
+      --bg-card: #1e1e1e;
+      --text-light: #f4f4f4;
+      --text-muted: #999999;
 
-        /* HEADER SECTION */
-        .main-header {
-            padding: 40px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to right, #222, var(--bg-main));
-            border-bottom: 3px solid var(--accent-orange);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
+      --accent-orange: #ff7700;
+      --accent-neon: #00ffff;
 
-        /* COMBINED LOGO AND NAME CONTAINER */
-        .header-logo-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+      --win-color: #00cc66;
+      --loss-color: #ff4444;
 
-        .header-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent-neon);
-            box-shadow: 0 0 15px var(--accent-neon);
-            flex-shrink: 0;
-        }
-        
-        .club-name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            color: var(--accent-neon);
-            text-shadow: 0 0 5px var(--accent-neon);
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
+      --border-color: #333333;
+    }
 
-        .header-content {
-            text-align: right;
-            position: relative;
-        }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-main);
+      background-image:
+        linear-gradient(rgba(255, 119, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px, 40px 40px;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .content-wrap { flex-grow: 1; }
 
-        .sub-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            margin: 0;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: var(--text-light);
-        }
+    /* HEADER */
+    .main-header {
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      background: linear-gradient(to right, #222, var(--bg-main));
+      border-bottom: 3px solid var(--accent-orange);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
 
-        .main-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4.5rem;
-            margin: -5px 0 5px 0;
-            text-transform: uppercase;
-            line-height: 1;
-            color: var(--accent-orange);
-            text-shadow: 0 0 10px rgba(255, 119, 0, 0.5);
-        }
-        
-        /* TYPING STYLE FOR TAGLINE MODIFIED */
-        .tagline-container {
-            width: 100%;
-            height: 25px;
-            margin-bottom: 20px;
-        }
-        
-        .tagline {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--accent-neon);
-            letter-spacing: 0.1em;
-            
-            /* Animation properties removed, making text instantly visible */
-            white-space: nowrap; 
-            overflow: visible; 
-            width: auto;
-            border-right: none; /* Removed blinking cursor style */
-            display: inline-block;
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-        }
+    .header-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 260px;
+    }
+    .header-logo {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-neon);
+      box-shadow: 0 0 15px var(--accent-neon);
+      flex-shrink: 0;
+    }
+    .club-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      color: var(--accent-neon);
+      text-shadow: 0 0 5px var(--accent-neon);
+      letter-spacing: 1px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
 
-        .badge {
-            display: inline-block;
-            background: var(--accent-neon);
-            color: var(--bg-main);
-            padding: 5px 25px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            border-radius: 4px;
-            box-shadow: 0 0 10px var(--accent-neon);
-        }
+    .header-content {
+      text-align: right;
+      width: 100%;
+    }
 
-        /* STANDINGS GRID LAYOUT */
-        .grid-container {
-            display: grid;
-            /* Force 2 columns when space allows */
-            grid-template-columns: repeat(2, minmax(400px, 1fr)); 
-            gap: 30px;
-            padding: 40px 60px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
+    .sub-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: var(--text-light);
+    }
 
-        /* STANDINGS CARD STYLES */
-        .card {
-            background: var(--bg-card);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s;
-        }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); }
+    .main-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4.5rem);
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(255, 119, 0, 0.5);
+    }
 
-        .card-top {
-            display: flex;
-            justify-content: flex-end;
-            padding: 15px 20px;
-            background-color: var(--accent-orange);
-            color: var(--bg-main);
-        }
+    .tagline-container {
+      width: 100%;
+      min-height: 25px;
+      margin-bottom: 18px;
+    }
+    .tagline {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--accent-neon);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      max-width: 100%;
+      text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
 
-        .card-top h3 {
-            margin: 0;
-            background: var(--bg-main);
-            color: var(--accent-orange);
-            padding: 5px 15px;
-            border-radius: 3px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
+    .badge {
+      display: inline-block;
+      background: var(--accent-neon);
+      color: var(--bg-main);
+      padding: 6px 24px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 4px;
+      box-shadow: 0 0 10px var(--accent-neon);
+    }
 
-        /* STANDINGS TABLE STYLES */
-        table { width: 100%; border-collapse: collapse; }
-        thead { background: #333333; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
-        th { padding: 14px 10px; font-size: 0.85rem; font-weight: 700; }
-        .text-left { text-align: left; padding-left: 20px; }
-        td { padding: 14px 10px; text-align: center; border-bottom: 1px solid var(--border-color); font-weight: 500; font-size: 1rem; color: var(--text-light); }
-        .pos { color: var(--accent-neon); font-size: 1.3rem; font-weight: 900; }
-        .club { text-align: left; padding-left: 20px; font-size: 1rem; display: flex; align-items: center; gap: 10px; font-weight: 700; }
-        .club i { width: 20px; text-align: center; color: var(--accent-orange); font-size: 0.9rem; }
-        .win { color: var(--win-color); font-weight: 700; }
-        .pts { color: var(--accent-orange); font-size: 1.1rem; font-weight: 900; }
-        .nrr { font-family: 'Roboto Mono', monospace; font-size: 1rem; }
-        .nrr.pos { color: var(--accent-neon); }
-        .nrr.neg { color: var(--loss-color); }
-        .qualified { background: rgba(0, 255, 255, 0.05); position: relative; }
-        .qualified::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background-color: var(--accent-neon); box-shadow: 0 0 8px var(--accent-neon); }
-        tbody tr:last-child td { border-bottom: none; }
+    /* GRID */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(380px, 1fr));
+      gap: 30px;
+      padding: 40px 60px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
 
-        /* KNOCKOUT STYLING */
-        .knockout-section { padding: 40px 60px; max-width: 1600px; margin: 40px auto; border-top: 2px dashed var(--accent-neon); text-align: center; }
-        .knockout-title { font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--accent-orange); text-transform: uppercase; margin-bottom: 30px; text-shadow: 0 0 10px rgba(255, 119, 0, 0.5); }
-        .bracket { display: flex; justify-content: center; align-items: flex-start; gap: 50px; padding: 20px 0; }
-        .round { display: flex; flex-direction: column; gap: 30px; min-width: 280px; }
-        .round h4 { font-family: 'Oswald', sans-serif; color: var(--accent-neon); font-size: 1.4rem; border-bottom: 2px solid var(--accent-neon); padding-bottom: 5px; margin-bottom: 20px; text-shadow: 0 0 5px var(--accent-neon); }
-        .matchup { background: #222222; border-radius: 4px; padding: 10px 15px; border: 1px solid var(--accent-orange); text-align: left; box-shadow: 0 0 10px rgba(255, 119, 0, 0.2); }
-        .team-slot { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-weight: 700; color: var(--text-light); font-size: 1rem; }
-        .team-slot:first-child { border-bottom: 1px dashed var(--border-color); margin-bottom: 5px; padding-bottom: 10px; }
-        .team-name-ko { font-weight: 500; color: var(--accent-neon); }
-        .winner { color: var(--accent-orange); font-weight: 700; text-shadow: 0 0 5px var(--accent-orange); }
-        .placeholder { color: var(--text-muted); font-style: italic; font-weight: 400; }
-        .final-match { margin-top: 60px; padding: 30px; border: 3px solid var(--accent-orange); box-shadow: 0 0 20px var(--accent-orange); }
+    /* CARD */
+    .card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); }
 
-        /* FOOTER STYLING */
-        footer { margin-top: auto; padding: 20px 60px; background-color: #0d0d0d; border-top: 2px solid var(--accent-neon); color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
-        .footer-social a { color: var(--accent-orange); text-decoration: none; margin-left: 20px; font-weight: 700; transition: color 0.2s; }
-        .footer-social a:hover { color: var(--accent-neon); text-shadow: 0 0 5px var(--accent-neon); }
-        .footer-social i { margin-right: 5px; }
-        .developer-credit { color: var(--text-muted); }
-        .developer-credit span { color: var(--accent-orange); font-weight: 700; }
+    .card-top {
+      display: flex;
+      justify-content: flex-end;
+      padding: 15px 20px;
+      background-color: var(--accent-orange);
+      color: var(--bg-main);
+    }
+    .card-top h3 {
+      margin: 0;
+      background: var(--bg-main);
+      color: var(--accent-orange);
+      padding: 5px 15px;
+      border-radius: 3px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
 
-        /* Responsive adjustment */
-        @media (max-width: 900px) {
-            .grid-container { 
-                /* Allow stacking below 900px */
-                grid-template-columns: 1fr;
-                padding: 20px;
-            }
-        }
-        @media (max-width: 768px) {
-            .main-header { flex-direction: column; align-items: center; padding: 30px 20px; }
-            .logo-title-container { flex-direction: column; align-items: center; gap: 10px; }
-            .header-content { text-align: center; width: 100%; margin-top: 15px; }
-            .club-name { margin-top: 0; }
-            .main-title { font-size: 3rem; }
-            footer { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
-        }
-    </style>
+    /* TABLE */
+    .table-wrapper { width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 520px; }
+    thead { background: #333333; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
+    th { padding: 14px 10px; font-size: 0.85rem; font-weight: 700; }
+    .text-left { text-align: left; padding-left: 20px; }
+    td {
+      padding: 14px 10px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+    .pos { color: var(--accent-neon); font-size: 1.3rem; font-weight: 900; }
+    .club { text-align: left; padding-left: 20px; font-size: 1rem; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+    .club i { width: 20px; text-align: center; color: var(--accent-orange); font-size: 0.9rem; }
+    .win { color: var(--win-color); font-weight: 700; }
+    .pts { color: var(--accent-orange); font-size: 1.1rem; font-weight: 900; }
+    .nrr { font-family: 'Roboto Mono', monospace; font-size: 1rem; }
+    .nrr.pos { color: var(--accent-neon); }
+    .nrr.neg { color: var(--loss-color); }
+    .qualified { background: rgba(0, 255, 255, 0.05); position: relative; }
+    .qualified::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background-color: var(--accent-neon);
+      box-shadow: 0 0 8px var(--accent-neon);
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* KNOCKOUT */
+    .knockout-section {
+      padding: 40px 60px;
+      max-width: 1600px;
+      margin: 40px auto;
+      border-top: 2px dashed var(--accent-neon);
+      text-align: center;
+    }
+    .knockout-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(255, 119, 0, 0.5);
+    }
+
+    .bracket { display: flex; justify-content: center; align-items: flex-start; gap: 50px; padding: 20px 0; flex-wrap: wrap; }
+    .round { display: flex; flex-direction: column; gap: 30px; min-width: 280px; }
+    .round h4 {
+      font-family: 'Oswald', sans-serif;
+      color: var(--accent-neon);
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--accent-neon);
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px var(--accent-neon);
+    }
+
+    .matchup {
+      background: #222222;
+      border-radius: 4px;
+      padding: 10px 15px;
+      border: 1px solid var(--accent-orange);
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 119, 0, 0.2);
+    }
+
+    .team-slot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      font-weight: 700;
+      color: var(--text-light);
+      font-size: 1rem;
+      gap: 10px;
+    }
+    .team-slot:first-child {
+      border-bottom: 1px dashed var(--border-color);
+      margin-bottom: 5px;
+      padding-bottom: 10px;
+    }
+
+    .team-name-ko { font-weight: 500; color: var(--accent-neon); }
+    .winner { color: var(--accent-orange); font-weight: 800; text-shadow: 0 0 5px var(--accent-orange); }
+    .placeholder { color: var(--text-muted); font-style: italic; font-weight: 400; }
+
+    .final-match {
+      margin-top: 30px;
+      padding: 18px;
+      border: 3px solid var(--accent-orange);
+      box-shadow: 0 0 20px var(--accent-orange);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: auto;
+      padding: 20px 60px;
+      background-color: #0d0d0d;
+      border-top: 2px solid var(--accent-neon);
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      gap: 14px;
+    }
+    .footer-social a {
+      color: var(--accent-orange);
+      text-decoration: none;
+      margin-left: 14px;
+      font-weight: 700;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .footer-social a:hover { color: var(--accent-neon); text-shadow: 0 0 5px var(--accent-neon); }
+    .footer-social i { margin-right: 5px; }
+    .developer-credit { color: var(--text-muted); }
+    .developer-credit span { color: var(--accent-orange); font-weight: 700; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid-container { grid-template-columns: 1fr; padding: 20px; }
+      .knockout-section { padding: 30px 20px; }
+      .main-header { padding: 28px 20px; }
+    }
+
+    @media (max-width: 768px) {
+      .main-header { flex-direction: column; align-items: center; }
+      .header-logo-container { justify-content: center; min-width: unset; }
+      .header-content { text-align: center; }
+      .tagline { white-space: normal; }
+      footer { flex-direction: column; text-align: center; padding: 20px; }
+      .footer-social a { margin-left: 0; display: inline-block; margin-top: 10px; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="content-wrap">
+  <div class="content-wrap">
 
-        <header class="main-header">
-            <div class="header-logo-container">
-                <img src="UIU Sports Club.png" alt="UIU Sports Club Logo" class="header-logo">
-                <span class="club-name">UIU SPORTS CLUB</span>
-            </div>
+    <header class="main-header">
+      <div class="header-logo-container">
+        <img src="UIU Sports Club.png" alt="UIU Sports Club Logo" class="header-logo" />
+        <span class="club-name">UIU SPORTS CLUB</span>
+      </div>
 
-            <div class="header-content">
-                <h2 class="sub-title">T10 CRICKET SEASON 3</h2>
-                <h1 class="main-title">TOURNAMENT</h1>
-                
-                <div class="tagline-container">
-                    <div class="tagline">United we stand, Divided we fall.</div>
-                </div>
-                
-                <div class="badge">STANDINGS</div>
-            </div>
-        </header>
+      <div class="header-content">
+        <h2 class="sub-title">T10 CRICKET SEASON 3</h2>
+        <h1 class="main-title">TOURNAMENT</h1>
 
-        <div class="grid-container">
-            
-            <div class="card">
-                <div class="card-top"><h3>Group A</h3></div>
-                <div class="table-wrapper">
-                    <table><thead><tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr></thead>
-                        <tbody>
-                            <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-shield-cat"></i> Knightmare Crew(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+5.68</td></tr>
-                            <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-shield-halved"></i> North Bengal(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
-                            <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-cloud-bolt"></i> Six Storm</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-3.16</td></tr>
-                            <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-truck-medical"></i> Team Emergency</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-6.63</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-top"><h3>Group B</h3></div>
-                <div class="table-wrapper">
-                    <table><thead><tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr></thead>
-                        <tbody>
-                            <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-crown"></i> UIU Conquerors(Q)</td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+3.61</td></tr>
-                            <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-bolt"></i> Electrical Express(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+2.08</td></tr>
-                            <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-paw"></i> Pitch Predators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.84</td></tr>
-                            <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-cloud"></i> Mighty Thunders</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-4.55</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-top"><h3>Group C</h3></div>
-                <div class="table-wrapper">
-                    <table><thead><tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr></thead>
-                        <tbody>
-                            <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-mask"></i> Midnight Assassins(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.30</td></tr>
-                            <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-train"></i> Team Express(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.27</td></tr>
-                            <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-users"></i> Alpha Squad</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr neg">-0.02</td></tr>
-                            <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-user-ninja"></i> Alpha Strikers</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-1.42</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-top"><h3>Group D</h3></div>
-                <div class="table-wrapper">
-                    <table><thead><tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr></thead>
-                        <tbody>
-                            <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-fire"></i> Fire Falcon(Q)</td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+1.27</td></tr>
-                            <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-moon"></i> Eclipse Sentinels(Q)</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr pos">+1.07</td></tr>
-                            <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-helmet-safety"></i> UIU Gladiators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-0.72</td></tr>
-                            <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-atom"></i> Quantum Strikers</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.27</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
+        <div class="tagline-container">
+          <div class="tagline">United we stand, Divided we fall.</div>
         </div>
-        
-        <div class="knockout-section">
-            <h2 class="knockout-title">Championship Knockout Stage</h2>
-            
-            <div class="bracket">
-                
-                <div class="round quarter-finals">
-                    <h4>Quarter-Finals</h4>
-                    
-                    <div class="matchup">
-                        <div class="team-slot">
-                            <span class="team-name-ko">Knightmare Crew</span>
-                        </div>
-                        <div class="team-slot">
-                            <span class="team-name-ko">Eclipse Sentinels</span>
-                        </div>
-                    </div>
 
-                    <div class="matchup">
-                        <div class="team-slot">
-                            <span class="team-name-ko">North Bengal</span>
-                        </div>
-                        <div class="team-slot">
-                            <span class="team-name-ko">Fire Falcon</span>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team-slot">
-                            <span class="team-name-ko">UIU Conquerors</span>
-                        </div>
-                        <div class="team-slot">
-                            <span class="team-name-ko winner">Team Express</span>
-                        </div>
-                    </div>
+        <div class="badge">STANDINGS</div>
+      </div>
+    </header>
 
-                    <div class="matchup">
-                        <div class="team-slot">
-                            <span class="team-name-ko">Midnight Assassins</span>
-                        </div>
-                        <div class="team-slot">
-                            <span class="team-name-ko">Electrical Express</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="round semi-finals">
-                    <h4>Semi-Finals</h4>
+    <div class="grid-container">
 
-                    <div class="matchup">
-                        <div class="team-slot">
-                            <span class="team-name-ko placeholder">Winner QF 1</span>
-                        </div>
-                        <div class="team-slot">
-                            <span class="team-name-ko winner">Team Express</span>
-                        </div>
-                    </div>
-
-                    <div class="matchup">
-                        <div class="team-slot">
-                            <span class="team-name-ko placeholder">Winner QF 2</span>
-                        </div>
-                        <div class="team-slot">
-                            <span class="team-name-ko placeholder">Electrical Express</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="round final">
-                    <h4>Grand Final</h4>
-                    <div class="matchup final-match">
-                        <div class="team-slot">
-                            <span class="team-name-ko placeholder">Winner SF 1</span>
-                        </div>
-                        <div class="team-slot">
-                            <span class="team-name-ko placeholder">Winner SF 2</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <!-- Group A -->
+      <div class="card">
+        <div class="card-top"><h3>Group A</h3></div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
+            </thead>
+            <tbody>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-shield-cat"></i> Knightmare Crew(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+5.68</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-shield-halved"></i> North Bengal(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
+              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-cloud-bolt"></i> Six Storm</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-3.16</td></tr>
+              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-truck-medical"></i> Team Emergency</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-6.63</td></tr>
+            </tbody>
+          </table>
         </div>
-    </div> 
+      </div>
 
-    <footer>
-        <div class="footer-social">
-            Follow the action on:
-            <a href="https://www.facebook.com/SCUIU" target="_blank" title="UIU Sports Club Facebook Page">
-                <i class="fab fa-facebook-square"></i> UIU Sports Club
-            </a>
+      <!-- Group B -->
+      <div class="card">
+        <div class="card-top"><h3>Group B</h3></div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
+            </thead>
+            <tbody>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-crown"></i> UIU Conquerors(Q)</td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+3.61</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-bolt"></i> Electrical Express(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+2.08</td></tr>
+              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-paw"></i> Pitch Predators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.84</td></tr>
+              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-cloud"></i> Mighty Thunders</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-4.55</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="developer-credit">
-            Developed by <span>Zidu cherry</span>
+      </div>
+
+      <!-- Group C -->
+      <div class="card">
+        <div class="card-top"><h3>Group C</h3></div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
+            </thead>
+            <tbody>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-mask"></i> Midnight Assassins(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.30</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-train"></i> Team Express(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+0.27</td></tr>
+              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-users"></i> Alpha Squad</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr neg">-0.02</td></tr>
+              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-user-ninja"></i> Alpha Strikers</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-1.42</td></tr>
+            </tbody>
+          </table>
         </div>
-    </footer>
+      </div>
+
+      <!-- Group D -->
+      <div class="card">
+        <div class="card-top"><h3>Group D</h3></div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
+            </thead>
+            <tbody>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-fire"></i> Fierce Falcons(Q)</td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+1.27</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-moon"></i> Eclipse Sentinels(Q)</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr pos">+1.07</td></tr>
+              <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-helmet-safety"></i> UIU Gladiators</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-0.72</td></tr>
+              <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-atom"></i> Quantum Strikers</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-1.27</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Knockout (UPDATED AS REQUESTED) -->
+    <div class="knockout-section">
+      <h2 class="knockout-title">Championship Knockout Stage</h2>
+
+      <div class="bracket">
+        <!-- Quarter Finals (order exactly as given) -->
+        <div class="round quarter-finals">
+          <h4>Quarter-Finals</h4>
+
+          <div class="matchup">
+            <div class="team-slot"><span class="team-name-ko">Knightmare Crew</span></div>
+            <div class="team-slot"><span class="team-name-ko">Fierce Falcons</span></div>
+          </div>
+
+          <div class="matchup">
+            <div class="team-slot"><span class="team-name-ko">UIU Conquerors</span></div>
+            <div class="team-slot"><span class="team-name-ko winner">Team Express</span></div>
+          </div>
+
+          <div class="matchup">
+            <div class="team-slot"><span class="team-name-ko">Midnight Assassins</span></div>
+            <div class="team-slot"><span class="team-name-ko winner">Electrical Express</span></div>
+          </div>
+
+          <div class="matchup">
+            <div class="team-slot"><span class="team-name-ko">Eclipse Sentinels</span></div>
+            <div class="team-slot"><span class="team-name-ko">North Bengal</span></div>
+          </div>
+        </div>
+
+        <!-- Semi Finals (Winner QF1 vs Winner QF3, Winner QF2 vs Winner QF4) -->
+        <div class="round semi-finals">
+          <h4>Semi-Finals</h4>
+
+          <div class="matchup">
+            <div class="team-slot"><span class="team-name-ko placeholder">Winner QF 1</span></div>
+            <div class="team-slot"><span class="team-name-ko winner">Electrical Express</span></div>
+          </div>
+
+          <div class="matchup">
+            <div class="team-slot"><span class="team-name-ko winner">Team Express</span></div>
+            <div class="team-slot"><span class="team-name-ko placeholder">Winner QF 4</span></div>
+          </div>
+        </div>
+
+        <!-- Final -->
+        <div class="round final">
+          <h4>Grand Final</h4>
+          <div class="matchup final-match">
+            <div class="team-slot"><span class="team-name-ko placeholder">Winner SF 1</span></div>
+            <div class="team-slot"><span class="team-name-ko placeholder">Winner SF 2</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-social">
+      Follow the action on:
+      <a href="https://www.facebook.com/SCUIU" target="_blank" rel="noopener noreferrer" title="UIU Sports Club Facebook Page">
+        <i class="fab fa-facebook-square"></i> UIU Sports Club
+      </a>
+    </div>
+    <div class="developer-credit">
+      Developed by <span>Zidu cherry</span>
+    </div>
+  </footer>
 </body>
 </html>
