@@ -136,6 +136,163 @@
       box-shadow: 0 0 10px var(--accent-neon);
     }
 
+    /* ===== BREAKING NEWS BAR (NEW) ===== */
+    .breaking-bar {
+      background: linear-gradient(90deg, var(--accent-orange), #ff9a3d);
+      color: var(--bg-main);
+      border-bottom: 2px solid rgba(0, 255, 255, 0.25);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+    .breaking-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 10px 60px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .breaking-pill {
+      background: var(--bg-main);
+      color: var(--accent-orange);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      box-shadow: 0 0 10px rgba(0,255,255,0.25);
+    }
+    .breaking-marquee {
+      overflow: hidden;
+      flex: 1;
+      position: relative;
+    }
+    .breaking-track {
+      display: inline-block;
+      white-space: nowrap;
+      will-change: transform;
+      animation: marquee 16s linear infinite;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .breaking-bar:hover .breaking-track { animation-play-state: paused; }
+
+    /* ===== MATCH CENTER (NEW) ===== */
+    .match-center {
+      max-width: 1600px;
+      margin: 28px auto 0;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+    }
+    @media (max-width: 1100px) { .match-center { grid-template-columns: 1fr; } }
+
+    .match-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transform: translateY(6px);
+      opacity: 0;
+      animation: cardIn 650ms ease forwards;
+    }
+    .match-card:nth-child(2) { animation-delay: 120ms; }
+    .match-card:nth-child(3) { animation-delay: 220ms; }
+
+    @keyframes cardIn { to { transform: translateY(0); opacity: 1; } }
+
+    .match-card-top {
+      background: var(--accent-orange);
+      color: var(--bg-main);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .match-card-top h3 {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+    }
+    .match-meta {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+    .match-card-body { padding: 18px; }
+
+    .scoreline { display: flex; flex-direction: column; gap: 12px; }
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 12px;
+      background: #222;
+      border: 1px solid #2f2f2f;
+      border-radius: 8px;
+    }
+    .team-left { display: flex; flex-direction: column; gap: 4px; }
+    .team-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.6px;
+      color: var(--accent-neon);
+    }
+    .team-note {
+      font-family: 'Roboto Mono', monospace;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .team-score {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--text-light);
+    }
+    .result-chip {
+      margin-top: 14px;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(0,255,255,0.08);
+      border: 1px solid rgba(0,255,255,0.25);
+      color: var(--accent-neon);
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+    }
+    .motm-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      color: var(--accent-neon);
+      margin: 0 0 8px 0;
+    }
+    .motm-stats, .highlights-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .small-muted {
+      color: var(--text-muted);
+      font-family: 'Roboto Mono', monospace;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .breaking-inner { padding: 10px 20px; }
+      .match-center { padding: 0 20px; }
+    }
+
     /* GRID */
     .grid-container {
       display: grid;
@@ -314,6 +471,13 @@
       footer { flex-direction: column; text-align: center; padding: 20px; }
       .footer-social a { margin-left: 0; display: inline-block; margin-top: 10px; }
     }
+  
+    .glow-orange {
+      color: var(--accent-orange) !important;
+      text-shadow: 0 0 6px rgba(255,119,0,0.65), 0 0 14px rgba(255,119,0,0.45);
+      font-weight: 900;
+    }
+
   </style>
 </head>
 
@@ -326,6 +490,7 @@
         <span class="club-name">UIU SPORTS CLUB</span>
       </div>
 
+      <!-- UPDATED: Last Match Result -->
       <div class="header-content">
         <h2 class="sub-title">T10 CRICKET SEASON 3</h2>
         <h1 class="main-title">TOURNAMENT</h1>
@@ -334,9 +499,160 @@
           <div class="tagline">United we stand, Divided we fall.</div>
         </div>
 
-        <div class="badge">STANDINGS</div>
+        <div class="badge">MATCH CENTER</div>
       </div>
     </header>
+
+    <!-- NEW: Breaking News Bar -->
+    <div class="breaking-bar">
+      <div class="breaking-inner">
+        <div class="breaking-pill">BREAKING</div>
+        <div class="breaking-marquee" aria-label="Breaking news">
+          <div class="breaking-track">Electrical Express 107/7 (10) beat Midnight Assassins 93/9 (10) by 14 runs • North Bengal UIU 180/4 (10) beat Eclipse Sentinels 55/8 (8.2) by 125 runs • MOTM: Gourob Baral (4/15) • MOTM: Murad (120 off 39) • North Bengal UIU & Electrical Express QUALIFIED TO SEMI-FINAL •</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- NEW: Match Center (Two Results) -->
+    <section class="match-center">
+
+      <!-- Match 1: Electrical Express vs Midnight Assassins -->
+      <div class="match-card">
+        <div class="match-card-top">
+          <h3>Scorecard</h3>
+          <div class="match-meta">Electrical Express vs Midnight Assassins</div>
+        </div>
+
+        <div class="match-card-body">
+          <div class="scoreline">
+            <div class="score-row">
+              <div class="team-left">
+                <div class="team-name">Electrical Express</div>
+                <div class="team-note">WIN</div>
+              </div>
+              <div class="team-score">107/7 (10.0)</div>
+            </div>
+
+            <div class="score-row">
+              <div class="team-left">
+                <div class="team-name">Midnight Assassins</div>
+                <div class="team-note">LOSE</div>
+              </div>
+              <div class="team-score">93/9 (10.0)</div>
+            </div>
+          </div>
+
+          <span class="result-chip">Result: Electrical Express won by 14 runs</span>
+        </div>
+      </div>
+
+      <!-- Match 1: MOTM + Highlights -->
+      <div style="display:flex; flex-direction:column; gap:24px;">
+
+        <div class="match-card">
+          <div class="match-card-top">
+            <h3>Man of the Match</h3>
+            <div class="match-meta">MVP 5.46</div>
+          </div>
+
+          <div class="match-card-body">
+            <h4 class="motm-name">Gourob Baral</h4>
+            <ul class="motm-stats">
+              <li>Batting: 1 (7) • 0x4 • 0x6</li>
+              <li>Bowling: 2.0–0–15–4</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="match-card">
+          <div class="match-card-top">
+            <h3>Match Highlights</h3>
+            <div class="match-meta">Key Moments</div>
+          </div>
+
+          <div class="match-card-body">
+            <ul class="highlights-list">
+              <li>Electrical Express posted 107/7 in 10 overs.</li>
+              <li>Gourob Baral ripped through the chase with 4 wickets (2–0–15–4).</li>
+              <li>Midnight Assassins finished 93/9 (10) — Express won by 14 runs.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="match-center" style="margin-top: 18px;">
+
+      <!-- Match 2: North Bengal UIU vs Eclipse Sentinels -->
+      <div class="match-card">
+        <div class="match-card-top">
+          <h3>Scorecard</h3>
+          <div class="match-meta">North Bengal UIU vs Eclipse Sentinels</div>
+        </div>
+
+        <div class="match-card-body">
+          <div class="scoreline">
+            <div class="score-row">
+              <div class="team-left">
+                <div class="team-name">North Bengal UIU</div>
+                <div class="team-note">WIN</div>
+              </div>
+              <div class="team-score">180/4 (10.0)</div>
+            </div>
+
+            <div class="score-row">
+              <div class="team-left">
+                <div class="team-name">Eclipse Sentinels</div>
+                <div class="team-note">LOSE</div>
+              </div>
+              <div class="team-score">55/8 (8.2)</div>
+            </div>
+          </div>
+
+          <span class="result-chip">Result: North Bengal UIU won by 125 runs</span>
+        </div>
+      </div>
+
+      <!-- Match 2: MOTM + Highlights -->
+      <div style="display:flex; flex-direction:column; gap:24px;">
+
+        <div class="match-card">
+          <div class="match-card-top">
+            <h3>Man of the Match</h3>
+            <div class="match-meta">MVP 14.47</div>
+          </div>
+
+          <div class="match-card-body">
+            <h4 class="motm-name">Murad</h4>
+            <ul class="motm-stats">
+              <li>Batting: 120 (39) • 3x4 • 16x6</li>
+              <li>Bowling: 1.2–0–10–2</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="match-card">
+          <div class="match-card-top">
+            <h3>Match Highlights</h3>
+            <div class="match-meta">Key Moments</div>
+          </div>
+
+          <div class="match-card-body">
+            <ul class="highlights-list">
+              <li>North Bengal UIU smashed 180/4 (10) — Murad’s 120 off 39 led the charge.</li>
+              <li>Eclipse Sentinels were bowled down to 55/8 (8.2).</li>
+              <li>Huge win margin: North Bengal UIU won by 125 runs.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
 
     <div class="grid-container">
 
@@ -350,7 +666,7 @@
             </thead>
             <tbody>
               <tr class="qualified"><td class="pos">01</td><td class="club"><i class="fa-solid fa-shield-cat"></i> Knightmare Crew(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+5.68</td></tr>
-              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-shield-halved"></i> North Bengal(Q)</td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><i class="fa-solid fa-shield-halved"></i> <span class="glow-orange">North Bengal UIU(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
               <tr><td class="pos">03</td><td class="club"><i class="fa-solid fa-cloud-bolt"></i> Six Storm</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-3.16</td></tr>
               <tr><td class="pos">04</td><td class="club"><i class="fa-solid fa-truck-medical"></i> Team Emergency</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-6.63</td></tr>
             </tbody>
@@ -440,7 +756,7 @@
 
           <div class="matchup">
             <div class="team-slot"><span class="team-name-ko">Eclipse Sentinels</span></div>
-            <div class="team-slot"><span class="team-name-ko">North Bengal</span></div>
+            <div class="team-slot"><span class="team-name-ko winner glow-orange">North Bengal UIU</span></div>
           </div>
         </div>
 
@@ -449,7 +765,7 @@
           <h4>Semi-Finals</h4>
 
           <div class="matchup">
-            <div class="team-slot"><span class="team-name-ko placeholder">Winner QF 1</span></div>
+            <div class="team-slot"><span class="team-name-ko glow-orange">North Bengal UIU</span></div>
             <div class="team-slot"><span class="team-name-ko winner">Electrical Express</span></div>
           </div>
 
