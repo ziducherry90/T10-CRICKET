@@ -136,6 +136,163 @@
       box-shadow: 0 0 10px var(--accent-neon);
     }
 
+    /* ===== BREAKING NEWS BAR (NEW) ===== */
+    .breaking-bar {
+      background: linear-gradient(90deg, var(--accent-orange), #ff9a3d);
+      color: var(--bg-main);
+      border-bottom: 2px solid rgba(0, 255, 255, 0.25);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+    .breaking-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 10px 60px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .breaking-pill {
+      background: var(--bg-main);
+      color: var(--accent-orange);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      box-shadow: 0 0 10px rgba(0,255,255,0.25);
+    }
+    .breaking-marquee {
+      overflow: hidden;
+      flex: 1;
+      position: relative;
+    }
+    .breaking-track {
+      display: inline-block;
+      white-space: nowrap;
+      will-change: transform;
+      animation: marquee 16s linear infinite;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .breaking-bar:hover .breaking-track { animation-play-state: paused; }
+
+    /* ===== MATCH CENTER (NEW) ===== */
+    .match-center {
+      max-width: 1600px;
+      margin: 28px auto 0;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+    }
+    @media (max-width: 1100px) { .match-center { grid-template-columns: 1fr; } }
+
+    .match-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transform: translateY(6px);
+      opacity: 0;
+      animation: cardIn 650ms ease forwards;
+    }
+    .match-card:nth-child(2) { animation-delay: 120ms; }
+    .match-card:nth-child(3) { animation-delay: 220ms; }
+
+    @keyframes cardIn { to { transform: translateY(0); opacity: 1; } }
+
+    .match-card-top {
+      background: var(--accent-orange);
+      color: var(--bg-main);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .match-card-top h3 {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+    }
+    .match-meta {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+    .match-card-body { padding: 18px; }
+
+    .scoreline { display: flex; flex-direction: column; gap: 12px; }
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 12px;
+      background: #222;
+      border: 1px solid #2f2f2f;
+      border-radius: 8px;
+    }
+    .team-left { display: flex; flex-direction: column; gap: 4px; }
+    .team-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.6px;
+      color: var(--accent-neon);
+    }
+    .team-note {
+      font-family: 'Roboto Mono', monospace;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .team-score {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--text-light);
+    }
+    .result-chip {
+      margin-top: 14px;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(0,255,255,0.08);
+      border: 1px solid rgba(0,255,255,0.25);
+      color: var(--accent-neon);
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+    }
+    .motm-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      color: var(--accent-neon);
+      margin: 0 0 8px 0;
+    }
+    .motm-stats, .highlights-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .small-muted {
+      color: var(--text-muted);
+      font-family: 'Roboto Mono', monospace;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .breaking-inner { padding: 10px 20px; }
+      .match-center { padding: 0 20px; }
+    }
+
     /* GRID */
     .grid-container {
       display: grid;
@@ -326,17 +483,106 @@
         <span class="club-name">UIU SPORTS CLUB</span>
       </div>
 
+      <!-- UPDATED: Last Match Result -->
       <div class="header-content">
-        <h2 class="sub-title">T10 CRICKET SEASON 3</h2>
-        <h1 class="main-title">TOURNAMENT</h1>
+        <h2 class="sub-title">LAST MATCH RESULT</h2>
+        <h1 class="main-title">TEAM EXPRESS WIN</h1>
 
         <div class="tagline-container">
-          <div class="tagline">United we stand, Divided we fall.</div>
+          <div class="tagline">Team Express beat UIU Conquerors by 12 runs</div>
         </div>
 
-        <div class="badge">STANDINGS</div>
+        <div class="badge">OFFICIAL RESULT</div>
       </div>
     </header>
+
+    <!-- NEW: Breaking News Bar -->
+    <div class="breaking-bar">
+      <div class="breaking-inner">
+        <div class="breaking-pill">BREAKING</div>
+        <div class="breaking-marquee" aria-label="Breaking news">
+          <div class="breaking-track">
+            Team Express beat UIU Conquerors by 12 runs • Knockout stage is heating up • Stay tuned for semi-finals updates •
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW: Match Center -->
+    <section class="match-center">
+
+      <!-- Scorecard -->
+      <div class="match-card">
+        <div class="match-card-top">
+          <h3>Scorecard</h3>
+          <div class="match-meta">Last Match</div>
+        </div>
+
+        <div class="match-card-body">
+          <div class="scoreline">
+            <div class="score-row">
+              <div class="team-left">
+                <div class="team-name">Team Express</div>
+                <div class="team-note">Winner</div>
+              </div>
+              <div class="team-score">—</div>
+            </div>
+
+            <div class="score-row">
+              <div class="team-left">
+                <div class="team-name">UIU Conquerors</div>
+                <div class="team-note">Lost by 12 runs</div>
+              </div>
+              <div class="team-score">—</div>
+            </div>
+          </div>
+
+          <span class="result-chip">Result: Team Express won by 12 runs</span>
+          <div class="small-muted">Tip: Replace “—” with actual runs/overs when you have the score.</div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div style="display:flex; flex-direction:column; gap:24px;">
+
+        <!-- Man of the Match -->
+        <div class="match-card">
+          <div class="match-card-top">
+            <h3>Man of the Match</h3>
+            <div class="match-meta">MOTM</div>
+          </div>
+
+          <div class="match-card-body">
+            <h4 class="motm-name">[Player Name]</h4>
+            <ul class="motm-stats">
+              <li>[Example] 32 (15 balls)</li>
+              <li>[Example] 2 wickets</li>
+              <li>[Example] 1 catch</li>
+            </ul>
+            <div class="small-muted">Update the player name + stats anytime.</div>
+          </div>
+        </div>
+
+        <!-- Match Highlights -->
+        <div class="match-card">
+          <div class="match-card-top">
+            <h3>Match Highlights</h3>
+            <div class="match-meta">Key Moments</div>
+          </div>
+
+          <div class="match-card-body">
+            <ul class="highlights-list">
+              <li>Early wickets set the tone for Team Express.</li>
+              <li>Middle overs: momentum swing with quick boundaries.</li>
+              <li>Death overs: tight bowling sealed the 12-run win.</li>
+            </ul>
+            <div class="small-muted">Add 3–6 bullet highlights for best look.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
 
     <div class="grid-container">
 
