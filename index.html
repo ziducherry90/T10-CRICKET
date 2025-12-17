@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UIU T10 Cricket Season 3 Tournament - Final Edition</title>
-  <link rel="icon" type="image/png" href="UIU Sports Club.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +19,7 @@
 
       --accent-orange: #ff7700;
       --accent-neon: #00ffff;
+      --accent-purple: #9d00ff;
 
       --win-color: #00cc66;
       --loss-color: #ff4444;
@@ -28,8 +28,6 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       padding: 0;
@@ -178,7 +176,7 @@
       font-weight: 700;
     }
     @keyframes marquee {
-      0%   { transform: translateX(100%); }
+      0%    { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
     .breaking-bar:hover .breaking-track { animation-play-state: paused; }
@@ -230,6 +228,16 @@
       opacity: 0.95;
     }
     .match-card-body { padding: 18px; }
+
+    /* Player Image Styling - Full Card */
+    .motm-hero-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-bottom: 2px solid var(--accent-neon);
+    }
 
     .scoreline { display: flex; flex-direction: column; gap: 12px; }
     .score-row {
@@ -284,34 +292,122 @@
       line-height: 1.7;
     }
 
-    @media (max-width: 900px) {
-      .breaking-inner { padding: 10px 20px; }
-      .match-center { padding: 0 20px; }
+    /* ===== STATS SECTION ===== */
+    .stats-section {
+        max-width: 1600px;
+        margin: 40px auto 0;
+        padding: 0 60px;
+    }
+    .stats-header {
+        font-family: 'Oswald', sans-serif;
+        color: var(--accent-orange);
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        border-left: 5px solid var(--accent-neon);
+        padding-left: 15px;
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .stat-card.top-rank {
+        border-color: var(--accent-orange);
+        box-shadow: 0 0 15px rgba(255, 119, 0, 0.2);
+    }
+    .stat-card.top-rank::before {
+        content: '1';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 40px;
+        height: 40px;
+        background: var(--accent-orange);
+        color: black;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-family: 'Oswald', sans-serif;
+        z-index: 2;
+    }
+    
+    /* Leader Profile Image */
+    .leader-img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top;
+        margin-top: 10px;
+        margin-bottom: 12px;
+        border: 3px solid var(--accent-orange);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    
+    /* Special Purple Style for Wickets Leader */
+    .stat-card.top-rank-bowler {
+        border-color: var(--accent-purple);
+        box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+    }
+    .stat-card.top-rank-bowler::before {
+        content: '1';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 40px;
+        height: 40px;
+        background: var(--accent-purple);
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-family: 'Oswald', sans-serif;
+        z-index: 2;
+    }
+    /* Purple Border for Bowler Image */
+    .stat-card.top-rank-bowler .leader-img {
+        border-color: var(--accent-purple);
     }
 
-    /* ===== GROUP STANDINGS HEADER ===== */
-    .standings-header {
-      max-width: 1600px;
-      margin: 50px auto 10px;
-      padding: 0 60px;
-      text-align: center;
+    .stat-player {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.4rem;
+        color: var(--text-light);
+        margin: 10px 0 5px 0;
     }
-    .standings-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      color: var(--accent-orange);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin: 0;
-      text-shadow: 0 0 10px rgba(255, 119, 0, 0.55);
+    .stat-value {
+        font-family: 'Roboto Mono', monospace;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-neon);
     }
-    .standings-subtitle {
-      margin-top: 8px;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 1rem;
-      color: var(--accent-neon);
-      letter-spacing: 0.12em;
-      text-shadow: 0 0 6px rgba(0, 255, 255, 0.45);
+    .stat-label {
+        color: var(--text-muted);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .breaking-inner { padding: 10px 20px; }
+      .match-center, .stats-section { padding: 0 20px; }
     }
 
     /* GRID */
@@ -368,7 +464,14 @@
       color: var(--text-light);
     }
     .pos { color: var(--accent-neon); font-size: 1.3rem; font-weight: 900; }
-    .club { text-align: left; padding-left: 20px; font-size: 1rem; font-weight: 700; }
+
+    .club {
+      text-align: left;
+      padding-left: 20px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
     .win { color: var(--win-color); font-weight: 700; }
     .pts { color: var(--accent-orange); font-size: 1.1rem; font-weight: 900; }
     .nrr { font-family: 'Roboto Mono', monospace; font-size: 1rem; }
@@ -480,7 +583,6 @@
       .grid-container { grid-template-columns: 1fr; padding: 20px; }
       .knockout-section { padding: 30px 20px; }
       .main-header { padding: 28px 20px; }
-      .standings-header { padding: 0 20px; margin-top: 35px; }
     }
 
     @media (max-width: 768px) {
@@ -497,74 +599,13 @@
       text-shadow: 0 0 6px rgba(255,119,0,0.65), 0 0 14px rgba(255,119,0,0.45);
       font-weight: 900;
     }
-
-    /* ===== FIXED SHORTCUT NAV ===== */
-    .quick-nav {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-    }
-
-    .quick-btn {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,255,255,0.35);
-      background: rgba(0,0,0,0.55);
-      color: var(--accent-neon);
-      font-size: 22px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 0 14px rgba(0,255,255,0.22);
-      backdrop-filter: blur(8px);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .quick-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 18px rgba(255,119,0,0.35);
-      color: var(--accent-orange);
-      border-color: rgba(255,119,0,0.45);
-    }
-
-    .quick-panel {
-      display: none;
-      min-width: 210px;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255,119,0,0.35);
-      background: rgba(18,18,18,0.92);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-    }
-    .quick-panel.show { display: block; }
-
-    .quick-panel a {
-      display: block;
-      padding: 12px 14px;
-      text-decoration: none;
-      font-family: 'Roboto Mono', monospace;
-      font-weight: 800;
-      color: var(--text-light);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: background 0.2s, color 0.2s;
-    }
-    .quick-panel a:last-child { border-bottom: none; }
-    .quick-panel a:hover {
-      background: rgba(0,255,255,0.10);
-      color: var(--accent-neon);
-    }
   </style>
 </head>
 
 <body>
   <div class="content-wrap">
 
-    <header class="main-header" id="top">
+    <header class="main-header">
       <div class="header-logo-container">
         <img src="UIU Sports Club.png" alt="UIU Sports Club Logo" class="header-logo" />
         <span class="club-name">UIU SPORTS CLUB</span>
@@ -582,27 +623,29 @@
       </div>
     </header>
 
-    <!-- Breaking News Bar -->
     <div class="breaking-bar">
       <div class="breaking-inner">
-        <div class="breaking-pill">UPDATE</div>
+        <div class="breaking-pill">BREAKING</div>
         <div class="breaking-marquee" aria-label="Breaking news">
           <div class="breaking-track">
-            North Bengal UIU & Electrical Express QUALIFIED TO SEMI-FINAL •
-            Match Alert: Knightmare Crew vs. Fierce Falcons at 2:30 AM – Teams Must Arrive on Time and Prepared •
+            Knightmare Crew 53/4 (7.0) beat Fierce Falcon 52/8 (10.0) by 6 wickets •
+            Electrical Express 107/7 beat Midnight Assassins •
+            Murad tops run chart with 240 runs •
+            Knightmare Crew ADVANCE TO SEMIS •
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Match Center (Match 1) -->
-    <section class="match-center" id="match-center">
+    <section class="match-center">
+    </section>
 
-      <!-- Match 1 -->
+    <section class="match-center" style="margin-top: 18px;">
+
       <div class="match-card">
         <div class="match-card-top">
           <h3>Scorecard</h3>
-          <div class="match-meta">Knightmare Crew vs. Fierce Falcons</div>
+          <div class="match-meta">Knightmare Crew vs Fierce Falcon</div>
         </div>
 
         <div class="match-card-body">
@@ -610,37 +653,39 @@
             <div class="score-row">
               <div class="team-left">
                 <div class="team-name">Knightmare Crew</div>
-                <div class="team-note">TBA</div>
+                <div class="team-note">WIN</div>
               </div>
-              <div class="team-score">Not Yet</div>
+              <div class="team-score">53/4 (7.0)</div>
             </div>
 
             <div class="score-row">
               <div class="team-left">
-                <div class="team-name">Fierce Falcons</div>
-                <div class="team-note">TBA</div>
+                <div class="team-name">Fierce Falcon</div>
+                <div class="team-note">LOSE</div>
               </div>
-              <div class="team-score">Not Yet</div>
+              <div class="team-score">52/8 (10.0)</div>
             </div>
           </div>
 
-          <span class="result-chip">Result: Teams Must Arrive on Time and Prepared</span>
+          <span class="result-chip">Result: Knightmare Crew won by 6 wickets</span>
         </div>
       </div>
 
-      <!-- Match 1: MOTM + Highlights -->
       <div style="display:flex; flex-direction:column; gap:24px;">
+
         <div class="match-card">
           <div class="match-card-top">
             <h3>Man of the Match</h3>
-            <div class="match-meta">MVP</div>
+            <div class="match-meta">MVP 4.82</div>
           </div>
 
+          <img src="Muntasir Rahaman Jihad.jpg" alt="Muntasir Rahaman Jihad - Man of the Match" class="motm-hero-img" width="934" height="700">
+
           <div class="match-card-body">
-            <h4 class="motm-name">TBA</h4>
+            <h4 class="motm-name">Muntasir Rahaman Jihad</h4>
             <ul class="motm-stats">
-              <li>Batting: - (-) • 0x4 • 0x6</li>
-              <li>Bowling: 0–0–0–0</li>
+              <li>Batting: 18 (10) • 1x4 • 2x6</li>
+              <li>Bowling: 2.0–0–4–1</li>
             </ul>
           </div>
         </div>
@@ -653,25 +698,79 @@
 
           <div class="match-card-body">
             <ul class="highlights-list">
-              <li>__</li>
-              <li>__</li>
-              <li>__</li>
+              <li>Fierce Falcons restricted to a low total of 52/8 (10 overs).</li>
+              <li>Muntasir Rahaman Jihad's all-round show (18 runs & 1 wicket) guided the chase.</li>
+              <li>Knightmare Crew reached the target comfortably in 7.0 overs, winning by 6 wickets.</li>
             </ul>
           </div>
         </div>
+
       </div>
 
     </section>
 
-    <!-- Group Standings Headline -->
-    <section class="standings-header" id="group-standings">
-      <h2 class="standings-title">Group Standings</h2>
-      <p class="standings-subtitle">UIU T10 Cricket Season 3 • Points Table</p>
+    <section class="stats-section">
+        <div class="stats-header">Tournament Leaders: Most Runs</div>
+        <div class="stats-grid">
+            <div class="stat-card top-rank">
+                <div class="stat-label">Orange Cap Holder</div>
+                <div class="stat-player">Murad</div>
+                <div class="stat-value">240</div>
+                <div class="stat-label">Total Runs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rank 02</div>
+                <div class="stat-player">Mehedi</div>
+                <div class="stat-value">125</div>
+                <div class="stat-label">Total Runs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rank 03</div>
+                <div class="stat-player">Shuvo</div>
+                <div class="stat-value">120</div>
+                <div class="stat-label">Total Runs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rank 04</div>
+                <div class="stat-player">Sayem</div>
+                <div class="stat-value">100</div>
+                <div class="stat-label">Total Runs</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section" style="margin-top: 40px;">
+        <div class="stats-header">Tournament Leaders: Wickets</div>
+        <div class="stats-grid">
+            <div class="stat-card top-rank-bowler">
+                <div class="stat-label">Purple Cap Holder</div>
+                <div class="stat-player">Murad</div>
+                <div class="stat-value">8</div>
+                <div class="stat-label">Total Wickets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rank 02</div>
+                <div class="stat-player">Mehedi</div>
+                <div class="stat-value">7</div>
+                <div class="stat-label">Total Wickets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rank 03</div>
+                <div class="stat-player">Tusher</div>
+                <div class="stat-value">7</div>
+                <div class="stat-label">Total Wickets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rank 04</div>
+                <div class="stat-player">Nayeem</div>
+                <div class="stat-value">6</div>
+                <div class="stat-label">Total Wickets</div>
+            </div>
+        </div>
     </section>
 
     <div class="grid-container">
 
-      <!-- Group A -->
       <div class="card">
         <div class="card-top"><h3>Group A</h3></div>
         <div class="table-wrapper">
@@ -680,8 +779,8 @@
               <tr><th>Pos</th><th class="text-left">Club Name</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr>
             </thead>
             <tbody>
-              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">North Bengal UIU(Q)</span></td><td>3</td><td class="win">3</td><td>0</td><td class="pts">6</td><td class="nrr pos">+5.68</td></tr>
-              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">Knightmare Crew(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
+              <tr class="qualified"><td class="pos">01</td><td class="club"><span class="glow-orange">Knightmare Crew(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+5.68</td></tr>
+              <tr class="qualified"><td class="pos">02</td><td class="club"><span class="glow-orange">North Bengal UIU(Q)</span></td><td>3</td><td class="win">2</td><td>1</td><td class="pts">4</td><td class="nrr pos">+3.25</td></tr>
               <tr><td class="pos">03</td><td class="club">Six Storm</td><td>3</td><td class="win">1</td><td>2</td><td class="pts">2</td><td class="nrr neg">-3.16</td></tr>
               <tr><td class="pos">04</td><td class="club">Team Emergency</td><td>3</td><td class="win">0</td><td>3</td><td class="pts">0</td><td class="nrr neg">-6.63</td></tr>
             </tbody>
@@ -689,7 +788,6 @@
         </div>
       </div>
 
-      <!-- Group B -->
       <div class="card">
         <div class="card-top"><h3>Group B</h3></div>
         <div class="table-wrapper">
@@ -707,7 +805,6 @@
         </div>
       </div>
 
-      <!-- Group C -->
       <div class="card">
         <div class="card-top"><h3>Group C</h3></div>
         <div class="table-wrapper">
@@ -725,7 +822,6 @@
         </div>
       </div>
 
-      <!-- Group D -->
       <div class="card">
         <div class="card-top"><h3>Group D</h3></div>
         <div class="table-wrapper">
@@ -745,16 +841,15 @@
 
     </div>
 
-    <!-- Knockout -->
-    <div class="knockout-section" id="knockout">
-      <h2 class="knockout-title">Knockout Stage</h2>
+    <div class="knockout-section">
+      <h2 class="knockout-title">Championship Knockout Stage</h2>
 
       <div class="bracket">
         <div class="round quarter-finals">
           <h4>Quarter-Finals</h4>
 
           <div class="matchup">
-            <div class="team-slot"><span class="team-name-ko">Knightmare Crew</span></div>
+            <div class="team-slot"><span class="team-name-ko winner glow-orange">Knightmare Crew</span></div>
             <div class="team-slot"><span class="team-name-ko">Fierce Falcons</span></div>
           </div>
 
@@ -784,15 +879,15 @@
 
           <div class="matchup">
             <div class="team-slot"><span class="team-name-ko winner">Team Express</span></div>
-            <div class="team-slot"><span class="team-name-ko placeholder">Winner QF 4</span></div>
+            <div class="team-slot"><span class="team-name-ko winner glow-orange">Knightmare Crew</span></div>
           </div>
         </div>
 
         <div class="round final">
           <h4>Grand Final</h4>
           <div class="matchup final-match">
-            <div class="team-slot"><span class="team-name-ko placeholder">Winner SF 1</span></div>
-            <div class="team-slot"><span class="team-name-ko placeholder">Winner SF 2</span></div>
+            <div class="team-slot"><span class="team-name-ko placeholder">Electrical Express</span></div>
+            <div class="team-slot"><span class="team-name-ko placeholder">Team Express/Knightmare</span></div>
           </div>
         </div>
       </div>
@@ -811,29 +906,5 @@
       Developed by <span>Zidu cherry</span>
     </div>
   </footer>
-
-  <!-- Floating Shortcuts -->
-  <div class="quick-nav" aria-label="Quick navigation">
-    <button class="quick-btn" onclick="toggleQuickNav()" aria-label="Open shortcuts">☰</button>
-    <div class="quick-panel" id="quickPanel">
-      <a href="#top">⬆ Top</a>
-      <a href="#match-center">🏏 Match Center</a>
-      <a href="#group-standings">📊 Group Standings</a>
-      <a href="#knockout">🏆 Knockout</a>
-    </div>
-  </div>
-
-  <script>
-    function toggleQuickNav() {
-      document.getElementById("quickPanel").classList.toggle("show");
-    }
-
-    document.addEventListener("click", function (e) {
-      const nav = document.querySelector(".quick-nav");
-      if (!nav.contains(e.target)) {
-        document.getElementById("quickPanel").classList.remove("show");
-      }
-    });
-  </script>
 </body>
 </html>
